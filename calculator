@@ -1,0 +1,20 @@
+import requests
+import numpy as np
+import pandas as pd
+!pip install certifi
+import certifi
+
+symbol= (input(f"Enter your company ticker "))
+
+# Define the API endpoint and parameters
+api_url = 'https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol={}&apikey=P7M6C5PE71GNLCKN'.format(symbol)
+
+# Get the income statement data
+response = requests.get(api_url)
+income_statement = response.json()
+
+api_url_2 = 'https://www.alphavantage.co/query?function=BALANCE_SHEET&symbol={}&apikey=P7M6C5PE71GNLCKN'.format(symbol)
+
+# Get the income statement data
+response_2 = requests.get(api_url_2)
+balance_sheet = response_2.json()
